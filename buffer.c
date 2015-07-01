@@ -84,6 +84,7 @@
 #include "event2/bufferevent_struct.h"
 #include "event2/thread.h"
 #include "event2/event-config.h"
+#include "event-internal.h"
 #include "log-internal.h"
 #include "mm-internal.h"
 #include "util-internal.h"

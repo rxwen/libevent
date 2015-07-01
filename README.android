@@ -10,6 +10,10 @@ No changes were made apart from the following:
   - m4
   - sample
   - test
+* added Android.mk
+* added CleanSpec.mk
+* added missing include of event-internal.h to buffer.c
+* added custom include/event2/event-config.h
 
 
 To uprev this project, you'll likely need to reverse engineer the autotools
