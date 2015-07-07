@@ -99,7 +99,7 @@
 #define _EVENT_HAVE_GETEUID 1
 
 /* Define this if you have any gethostbyname_r() */
-/* #undef _EVENT_HAVE_GETHOSTBYNAME_R */
+#define _EVENT_HAVE_GETHOSTBYNAME_R 1
 
 /* Define this if gethostbyname_r takes 3 arguments */
 /* #undef _EVENT_HAVE_GETHOSTBYNAME_R_3_ARG */
@@ -108,7 +108,7 @@
 /* #undef _EVENT_HAVE_GETHOSTBYNAME_R_5_ARG */
 
 /* Define this if gethostbyname_r takes 6 arguments */
-/* #undef _EVENT_HAVE_GETHOSTBYNAME_R_6_ARG */
+#define _EVENT_HAVE_GETHOSTBYNAME_R_6_ARG 1
 
 /* Define to 1 if you have the `getnameinfo' function. */
 #define _EVENT_HAVE_GETNAMEINFO 1

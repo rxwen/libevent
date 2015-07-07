@@ -29,7 +29,7 @@ NDK_ROOT="${BRANCH_ROOT}/prebuilts/ndk/current/platforms/android-21/arch-arm64/u
   CFLAGS="-nostdlib
           -Wl,-rpath-link=${BRANCH_ROOT}/out/target/product/hammerhead/obj/lib
           -L${BRANCH_ROOT}/out/target/product/hammerhead/obj/lib
-          -I${BRANCH_ROOT}/prebuilts/ndk/current/platforms/android-21/arch-arm/usr/include"
-          LIBS="-lc "
+          -I${BRANCH_ROOT}/prebuilts/ndk/current/platforms/android-21/arch-arm/usr/include" \
+  LIBS="-lc "
 
 Note that I built hammerhead first and used prebuilts from the most recent NDK.
