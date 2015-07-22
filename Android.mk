@@ -13,7 +13,6 @@
 # limitations under the License.
 
 LOCAL_PATH := $(call my-dir)
-include $(CLEAR_VARS)
 
 libevent_sys_src := \
 	select.c \
@@ -43,20 +42,31 @@ libevent_extra_src := \
 	evrpc.c \
 	http.c
 
-LOCAL_ARM_MODE := arm
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/include
-LOCAL_SRC_FILES := \
+libevent_all_src := \
 	$(libevent_sys_src) \
 	$(libevent_core_src) \
 	$(libevent_extra_src)
-LOCAL_SHARED_LIBRARIES := libc
-LOCAL_MODULE := libevent
-LOCAL_CFLAGS := \
+
+libevent_cflags := \
 	-O3 \
 	-Wno-implicit-function-declaration \
 	-Wno-strict-aliasing \
 	-Wno-unused-parameter
 
+include $(CLEAR_VARS)
+LOCAL_MODULE := libevent
+LOCAL_ARM_MODE := arm
+LOCAL_CFLAGS := $(libevent_cflags)
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/include
 LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)/include
-
+LOCAL_SHARED_LIBRARIES := libc
+LOCAL_SRC_FILES := $(libevent_all_src)
 include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libevent-host
+LOCAL_CFLAGS := $(libevent_cflags)
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/include
+LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)/include
+LOCAL_SRC_FILES := $(libevent_all_src)
+include $(BUILD_HOST_SHARED_LIBRARY)
