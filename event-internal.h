@@ -310,7 +310,7 @@ struct event_config {
 };
 
 /* Internal use only: Functions that might be missing from <sys/queue.h> */
-#if defined(_EVENT_HAVE_SYS_QUEUE_H) && !defined(_EVENT_HAVE_TAILQFOREACH)
+#if defined(_EVENT_HAVE_SYS_QUEUE_H)
 #ifndef TAILQ_FIRST
 #define	TAILQ_FIRST(head)		((head)->tqh_first)
 #endif
@@ -336,7 +336,7 @@ struct event_config {
 	(listelm)->field.tqe_prev = &(elm)->field.tqe_next;		\
 } while (0)
 #endif
-#endif /* TAILQ_FOREACH */
+#endif /* HAVE_SYS_QUEUE_H */
 
 #define N_ACTIVE_CALLBACKS(base)					\
 	((base)->event_count_active + (base)->defer_queue.active_count)
