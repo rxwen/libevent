@@ -1,7 +1,13 @@
 #include <sys/cdefs.h>  /* Defines __BIONIC__ */
 
 #if defined(__BIONIC__)
-#include <event2/event-config-bionic.h>
+#  include <event2/event-config-bionic.h>
 #else
-#include <event2/event-config-host.h>
+#  if defined(__linux__)
+#    include <event2/event-config-linux.h>
+#  elif defined(__APPLE__)
+#    include <event2/event-config-darwin.h>
+#  else
+#    error No event-config.h suitable for this distribution.
+#  endif
 #endif  /* ifdef __BIONIC__ */
