@@ -14,11 +14,14 @@
 
 LOCAL_PATH := $(call my-dir)
 
-libevent_sys_src := \
-	select.c \
-	poll.c \
+libevent_linux_src := \
 	epoll.c \
-	signal.c
+	poll.c \
+	select.c \
+
+libevent_darwin_src := \
+	poll.c \
+	select.c \
 
 libevent_core_src := \
 	buffer.c \
@@ -34,6 +37,7 @@ libevent_core_src := \
 	evutil_rand.c \
 	listener.c \
 	log.c \
+	signal.c \
 	strlcpy.c
 
 libevent_extra_src := \
@@ -43,7 +47,6 @@ libevent_extra_src := \
 	http.c
 
 libevent_all_src := \
-	$(libevent_sys_src) \
 	$(libevent_core_src) \
 	$(libevent_extra_src)
 
@@ -60,7 +63,7 @@ LOCAL_CFLAGS := $(libevent_cflags)
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/include
 LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)/include
 LOCAL_SHARED_LIBRARIES := libc
-LOCAL_SRC_FILES := $(libevent_all_src)
+LOCAL_SRC_FILES := $(libevent_all_src) $(libevent_linux_src)
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
@@ -68,5 +71,5 @@ LOCAL_MODULE := libevent-host
 LOCAL_CFLAGS := $(libevent_cflags)
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/include
 LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)/include
-LOCAL_SRC_FILES := $(libevent_all_src)
+LOCAL_SRC_FILES := $(libevent_all_src) $(libevent_$(HOST_OS)_src)
 include $(BUILD_HOST_SHARED_LIBRARY)
