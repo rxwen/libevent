@@ -20,6 +20,7 @@ libevent_linux_src := \
 	select.c \
 
 libevent_darwin_src := \
+	kqueue.c \
 	poll.c \
 	select.c \
 
