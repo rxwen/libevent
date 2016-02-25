@@ -10,6 +10,18 @@
 
 #ifndef _EVENT2_EVENT_CONFIG_H_
 #define _EVENT2_EVENT_CONFIG_H_
+
+#include <stdint.h>
+
+/* The size of `size_t', as computed by sizeof. */
+#if SIZE_MAX == UINT64_MAX
+#  define _EVENT_SIZEOF_SIZE_T 8
+#elif SIZE_MAX == UINT32_MAX
+#  define _EVENT_SIZEOF_SIZE_T 4
+#else
+#  error "No way to infer sizeof size_t"
+#endif
+
 /* config.h.  Generated from config.h.in by configure.  */
 /* config.h.in.  Generated from configure.ac by autoheader.  */
 
@@ -414,9 +426,6 @@
 
 /* The size of `short', as computed by sizeof. */
 #define _EVENT_SIZEOF_SHORT 2
-
-/* The size of `size_t', as computed by sizeof. */
-#define _EVENT_SIZEOF_SIZE_T 8
 
 /* The size of `void *', as computed by sizeof. */
 #define _EVENT_SIZEOF_VOID_P 8
