@@ -55,7 +55,8 @@ libevent_cflags := \
 	-O3 \
 	-Wno-implicit-function-declaration \
 	-Wno-strict-aliasing \
-	-Wno-unused-parameter
+	-Wno-unused-parameter \
+	-Werror
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := libevent
