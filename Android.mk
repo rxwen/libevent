@@ -52,6 +52,7 @@ libevent_all_src := \
 	$(libevent_extra_src)
 
 libevent_cflags := \
+	-D_BSD_SOURCE \
 	-O3 \
 	-Wno-implicit-function-declaration \
 	-Wno-strict-aliasing \
