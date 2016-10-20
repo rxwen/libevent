@@ -67,6 +67,7 @@ cc_library {
         },
         linux: {
             srcs: ["epoll.c"],
+            host_ldlibs: ["-lrt"],
         },
         darwin: {
             srcs: ["kqueue.c"],
