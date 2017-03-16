@@ -69,6 +69,10 @@ cc_library {
             srcs: ["epoll.c"],
             host_ldlibs: ["-lrt"],
         },
+        linux_bionic: {
+            enabled: true,
+            srcs: ["epoll.c"],
+        },
         darwin: {
             srcs: ["kqueue.c"],
         },
