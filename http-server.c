@@ -390,10 +390,10 @@ main(int argc, char **argv)
 			return 1;
 		}
 		if (ss.ss_family == AF_INET) {
-            got_port = ntohs(((struct sockaddr_in*)&ss)->sin_port);
+            /*got_port = ntohs(((struct sockaddr_in*)&ss)->sin_port);*/
 			/*inaddr = &((struct sockaddr_in*)&ss)->sin_addr;*/
 		} else if (ss.ss_family == AF_INET6) {
-            got_port = ntohs(((struct sockaddr_in6*)&ss)->sin6_port);
+            /*got_port = ntohs(((struct sockaddr_in6*)&ss)->sin6_port);*/
 			/*inaddr = &((struct sockaddr_in6*)&ss)->sin6_addr;*/
 		} else {
 			fprintf(stderr, "Weird address family %d\n",
