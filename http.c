@@ -3630,6 +3630,10 @@ evhttp_request_get_host(struct evhttp_request *req)
 	return host;
 }
 
+evutil_socket_t evhttp_request_get_fd(struct evhttp_request *req) {
+    return req->evcon->fd;
+}
+
 enum evhttp_cmd_type
 evhttp_request_get_command(const struct evhttp_request *req) {
 	return (req->type);
