@@ -12,6 +12,7 @@ LOCAL_SRC_FILES:= \
         event.c \
         evmap.c \
         evthread.c \
+        evthread_pthread.c \
         evutil.c \
         evutil_rand.c \
         listener.c \
@@ -33,6 +34,7 @@ LOCAL_CFLAGS += -D_BSD_SOURCE \
 				 -Wno-implicit-function-declaration \
 				 -Wno-strict-aliasing \
 				 -DSIZE_MAX=4294967295U
+LOCAL_LDLIBS += -lpthread
 
 LOCAL_MODULE_TAGS := eng
 
