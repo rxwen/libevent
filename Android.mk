@@ -9,6 +9,7 @@ LOCAL_SRC_FILES:= \
         bufferevent_pair.c \
         bufferevent_ratelim.c \
         bufferevent_sock.c \
+        bufferevent_openssl.c \
         event.c \
         evmap.c \
         evthread.c \
@@ -28,6 +29,7 @@ LOCAL_SRC_FILES:= \
         select.c
 
 LOCAL_C_INCLUDES += \
+    external/openssl/include \
 	$(LOCAL_PATH)/include
 
 LOCAL_CFLAGS += -D_BSD_SOURCE \
@@ -35,6 +37,8 @@ LOCAL_CFLAGS += -D_BSD_SOURCE \
 				 -Wno-strict-aliasing \
 				 -DSIZE_MAX=4294967295U
 LOCAL_LDLIBS += -lpthread
+
+LOCAL_SHARED_LIBRARIES += libssl libcrypto
 
 LOCAL_MODULE_TAGS := eng
 
