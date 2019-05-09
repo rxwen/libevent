@@ -19,7 +19,7 @@
 #elif SIZE_MAX == UINT32_MAX
 #  define _EVENT_SIZEOF_SIZE_T 4
 #else
-#  error "No way to infer sizeof size_t"
+#  define _EVENT_SIZEOF_SIZE_T 4
 #endif
 
 /* config.h.  Generated from config.h.in by configure.  */
